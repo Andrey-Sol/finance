@@ -18,6 +18,10 @@ body {
     font-family: "Roboto", sans-serif;
 }
 
+.main-container {
+    max-width: 1440px;
+}
+
 .form-title {
     font-weight: bold;
     color: #052C65;
@@ -138,5 +142,24 @@ body {
     font-size: 40px;
     font-weight: 600;
     color: #052C65;
+}
 
+.category-item {
+    min-width: 295px;
+    max-width: 365px;
+}
+
+.category-item-title {
+    font-size: 28px;
+    font-weight: bold;
+    color: #290661;
+}
+
+.add-category-button {
+    height: 96px;
+}
+
+.modal-body {
+    font-size: 20px;
+    color: #290661;
 }
