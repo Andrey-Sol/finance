@@ -169,7 +169,7 @@ body {
 }
 
 @media screen and (max-width: 650px) {
-    .edit-page-title {
+    .page-title-long {
         font-size: 35px;
     }
 }
