@@ -163,3 +163,14 @@ body {
     font-size: 20px;
     color: #290661;
 }
+
+.actions {
+    min-width: 200px;
+}
+
+
+@media screen and (max-width: 425px) {
+    .create-income-title {
+        font-size: 30px;
+    }
+}
