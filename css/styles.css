@@ -165,12 +165,17 @@ body {
 }
 
 .actions {
-    min-width: 200px;
+    min-width: 210px;
 }
 
+@media screen and (max-width: 650px) {
+    .edit-income-title {
+        font-size: 35px;
+    }
+}
 
 @media screen and (max-width: 425px) {
-    .create-income-title {
+    .create-income-title, .edit-income-title {
         font-size: 30px;
     }
 }
