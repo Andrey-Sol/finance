@@ -165,8 +165,33 @@ body {
 }
 
 .actions {
-    min-width: 210px;
+    min-width: 300px;
 }
+
+.filter-button {
+    width: 100px;
+}
+
+.filter-date {
+    min-width: 140px;
+}
+
+.filter-date a {
+    color: #6C757D;
+}
+
+.table-head tr th {
+    color: #052C65;
+}
+
+#table-income {
+    color: #198754;
+}
+
+#table-expense {
+    color: #DC3545;
+}
+
 
 @media screen and (max-width: 650px) {
     .page-title-long {
