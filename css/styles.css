@@ -192,15 +192,57 @@ body {
     color: #DC3545;
 }
 
+.charts {
+    height: 480px;
+}
+
+.chart-wrapper {
+    height: 500px;
+}
+
+
+@media screen and (max-width: 1024px) {
+    .charts {
+        height: 450px;
+    }
+
+    .chart-wrapper {
+        height: 450px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .charts {
+        height: unset;
+    }
+
+    .chart-wrapper {
+        height: 550px;
+    }
+}
 
 @media screen and (max-width: 650px) {
     .page-title-long {
         font-size: 35px;
+    }
+
+    .chart-wrapper {
+        height: 500px;
     }
 }
 
 @media screen and (max-width: 425px) {
     .page-title-long {
         font-size: 28px;
+    }
+
+    .chart-wrapper {
+        height: 380px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .chart-wrapper {
+        height: 300px;
     }
 }
