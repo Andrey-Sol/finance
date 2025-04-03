@@ -18,9 +18,9 @@ body {
     font-family: "Roboto", sans-serif;
 }
 
-.main-container {
-    max-width: 1440px;
-}
+/*.main-container {*/
+/*    max-width: 1440px;*/
+/*}*/
 
 .form-title {
     font-weight: bold;
