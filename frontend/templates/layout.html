@@ -1,19 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Создание категории расходов</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
 
-<div class="container main-container vh-100 pe-0 overflow-x-hidden" id="wrapper">
+<div class="main-container vh-100 pe-0 overflow-x-hidden" id="wrapper">
     <div class="sidebar border-end col-sm-4 col-md-3 col-lg-2  d-flex flex-column justify-content-between position-absolute"
          id="sidebar-wrapper">
         <div class="sidebar-header border-bottom d-flex justify-content-center py-4">
-            <img src="images/logo-sm.svg" alt="logo" class="mt-3">
+            <img src="../static/images/logo-sm.svg" alt="logo" class="mt-3">
         </div>
         <div class="sidebar-body p-3 mt-5 mb-auto d-flex flex-column justify-content-between h-100">
             <div class="sidebar-nav mb-5">
@@ -66,36 +56,13 @@
         <div class="sidebar-footer w-100 border-top p-3 ">
             <div class="user-info d-flex align-items-center mb-3">
                 <div class="user-avatar d-flex align-items-center justify-content-center me-3">
-                    <img src="images/person-icon.svg" alt="user icon">
+                    <img src="../static/images/person-icon.svg" alt="user icon">
                 </div>
                 <div class="user-name">RomanChernov</div>
             </div>
         </div>
     </div>
 
-    <div class="p-0" id="page-content-wrapper">
-        <div class="header border-bottom navbar px-2">
-            <button class="navbar-toggler" type="button" id="menu-toggle" data-bs-toggle="offcanvas"
-                    data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-        </div>
-        <div class="mx-sm-3 mt-sm-5 p-sm-3 mx-1 mt-3 mb-5 p-1">
-            <div class="page-title page-title-long mb-sm-5 ms-4 mb-3">Создание категории расходов</div>
-            <div class="ms-sm-4 ms-3 col-11 col-sm-10 col-md-7 col-lg-6 col-xl-5 ">
-                <input class="form-control mb-4" type="text" placeholder="Название...">
-                <div class="actions mb-3">
-                    <button type="button" class="btn btn-success me-2">Создать</button>
-                    <button type="button" class="btn btn-danger">Отмена</button>
-                </div>
-            </div>
-        </div>
-    </div>
+    <div id="content-layout"></div>
+
 </div>
-
-<script src="scripts/bootstrap.min.js"></script>
-<script src="scripts/bootstrap.bundle.min.js"></script>
-<script src="scripts/script.js"></script>
-
-</body>
-</html>
