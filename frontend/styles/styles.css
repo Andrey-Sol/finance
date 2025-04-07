@@ -1,17 +1,17 @@
 
 @font-face {
     font-family: "Roboto";
-    src: url("fonts/Roboto.ttf");
+    src: url("../static/fonts/Roboto.ttf");
 }
 
 @font-face {
     font-family: "Roboto-Medium";
-    src: url("fonts/Robotomedium.ttf");
+    src: url("../static/fonts/Robotomedium.ttf");
 }
 
 @font-face {
     font-family: "Roboto-Bold";
-    src: url("fonts/Robotobold.ttf");
+    src: url("../static/fonts/Robotobold.ttf");
 }
 
 body {
