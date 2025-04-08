@@ -1,11 +1,19 @@
+import { AuthUtils } from "../utils/auth-utils.js";
+
 export class SignUp {
     constructor() {
+
+        if (AuthUtils.getAuthInfo(AuthUtils.accessTokenKey)) {
+            location.href = '#/';
+            return;
+        }
+
         this.nameElement = document.getElementById('name-input');
         this.emailElement = document.getElementById('email-input');
         this.passwordElement = document.getElementById('password-input');
         this.passwordRepeatElement = document.getElementById('repeat-password-input');
 
-        document.getElementById('process-button').addEventListener('click', this.signUp.bind(this));
+        // document.getElementById('process-button').addEventListener('click', this.signUp.bind(this));
     }
 
     validateForm() {
@@ -41,4 +49,6 @@ export class SignUp {
 
         return isValid;
     }
+
+    async signUp() {}
 }

@@ -1,10 +1,18 @@
+import { AuthUtils } from "../utils/auth-utils.js";
+
 export class Login {
     constructor() {
+
+        if (AuthUtils.getAuthInfo(AuthUtils.accessTokenKey)) {
+            location.href = '#/';
+            return;
+        }
+
         this.emailElement = document.getElementById('email-input');
         this.passwordElement = document.getElementById('password-input');
         this.rememberMeElement = document.getElementById('remember-me');
 
-        document.getElementById('process-button').addEventListener('click', this.signUp.bind(this));
+        // document.getElementById('process-button').addEventListener('click', this.signUp.bind(this));
     }
 
     validateForm() {
@@ -33,4 +41,6 @@ export class Login {
 
         return isValid;
     }
+
+    async login() {}
 }
