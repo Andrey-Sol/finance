@@ -18,10 +18,6 @@ body {
     font-family: "Roboto", sans-serif;
 }
 
-/*.main-container {*/
-/*    max-width: 1440px;*/
-/*}*/
-
 .form-title {
     font-weight: bold;
     color: #052C65;
@@ -91,14 +87,16 @@ body {
     color: #052C65;
 }
 
-/*.sidebar-menu-dropdown-button svg {*/
-/*    transform: rotate(90deg);*/
-/*    transition: all 0.2s ease;*/
-/*}*/
-
 .sidebar-menu-dropdown-button.show {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
+
+    color: var(--bs-nav-pills-link-active-color);
+    background-color: var(--bs-nav-pills-link-active-bg);
+}
+
+.sidebar-menu-dropdown-button.show.sidebar-menu-dropdown-button svg {
+    transform: rotate(90deg);
 }
 
 .sidebar-dropdown-menu {

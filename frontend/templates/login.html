@@ -11,8 +11,11 @@
                               fill="#6C757D"/>
                     </svg>
                 </span>
-                <input type="email" class="form-control is-invalid" id="email-input" placeholder="Электронная почта" aria-label="Email"
+                <input type="email" class="form-control" id="email-input" placeholder="Электронная почта" aria-label="Email"
                        aria-describedby="basic-addon1">
+                <div class="invalid-feedback">
+                    Некорректный email
+                </div>
             </div>
             <div class="input-group mb-2">
                 <span class="input-group-text" id="password-icon">
@@ -24,15 +27,18 @@
                 </span>
                 <input type="password" class="form-control" id="password-input" placeholder="Пароль" aria-label="Password"
                        aria-describedby="basic-addon1">
+                <div class="invalid-feedback">
+                    Некорректный пароль
+                </div>
             </div>
             <div class="mb-4 form-check">
-                <input type="checkbox" class="form-check-input" id="remember-me" required>
+                <input type="checkbox" class="form-check-input" id="remember-me">
                 <label class="form-check-label" for="remember-me">Запомнить меня</label>
             </div>
-            <button type="submit" class="btn btn-primary w-100" id="process-button">Войти</button>
+            <button type="button" class="btn btn-primary w-100" id="process-button">Войти</button>
         </form>
         <div class="form-link align-self-start">
-            Ещё нет аккаунта? <a href="">Пройдите регистрацию</a>
+            Ещё нет аккаунта? <a href="/#/signup">Пройдите регистрацию</a>
         </div>
     </div>
 </div>

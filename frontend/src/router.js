@@ -1,4 +1,7 @@
 import { Diagrams } from "./components/diagrams.js";
+import { Logout } from "./components/logout.js";
+import { Form } from "./components/form.js";
+import { AuthUtils } from "./utils/auth-utils.js";
 
 export class Router {
     constructor() {
@@ -20,18 +23,18 @@ export class Router {
                 title: 'Вход',
                 template: 'templates/login.html',
                 useLayout: false,
-                load: () => {}
+                load: () => {
+                    new Form('login');
+                }
             },
             {
                 route: '#/signup',
                 title: 'Регистрация',
                 template: 'templates/sign-up.html',
                 useLayout: false,
-                load: () => {}
-            },
-            {
-                route: '#/logout',
-                load: () => {}
+                load: () => {
+                    new Form('signup');
+                }
             },
             {
                 route: '#/income',
@@ -101,21 +104,44 @@ export class Router {
 
     async openRoute() {
         const urlRoute = window.location.hash.split('?')[0];
-
         if (urlRoute === '#/logout') {
-            // здесь вызвать метод логаут
-            window.location.href = '#/';
-            return
+            new Logout();
+            return;
         }
 
         const newRoute = this.routes.find(item => item.route === urlRoute);
+        const userInfo = JSON.parse(AuthUtils.getAuthInfo(AuthUtils.userInfoTokenKey));
+        const accessToken = AuthUtils.getAuthInfo(AuthUtils.accessTokenKey);
+
         if (!newRoute) {
             window.location.href = '#/';
             return
         }
+
+        if (!userInfo && !accessToken) {
+            if (urlRoute !== '#/login' && urlRoute !== '#/signup') {
+                window.location.href = '#/login';
+                return
+            }
+        } else {
+            if (urlRoute === '#/login' || urlRoute === '#/signup') {
+                window.location.href = '#/';
+                return
+            }
+        }
+
         if (newRoute.useLayout) {
             this.pageContentElement.innerHTML = await fetch(newRoute.useLayout).then(response => response.text());
             document.getElementById("layout-content").innerHTML = await fetch(newRoute.template).then(response => response.text());
+            document.getElementById('profile-full-name').innerText = userInfo.name + ' ' + userInfo.lastName;
+
+            // Переключение пунктов меню
+            if (urlRoute === '#/') {
+                document.getElementById('main-link').classList.add('active');
+            }
+            if (urlRoute === '#/operations') {
+                document.getElementById('operations-link').classList.add('active');
+            }
 
             // Переключение сайдбара
             document.getElementById('menu-toggle').addEventListener('click', function(e) {

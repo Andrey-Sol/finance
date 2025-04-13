@@ -12,6 +12,9 @@
                 </span>
                 <input type="text" class="form-control" id="name-input" placeholder="ФИО" aria-label="Username"
                        aria-describedby="basic-addon1">
+                <div class="invalid-feedback">
+                    Фамилия, Имя и Отчество обязательны
+                </div>
             </div>
             <div class="input-group mb-2">
                 <span class="input-group-text" id="email-icon">
@@ -21,8 +24,11 @@
                               fill="#6C757D"/>
                     </svg>
                 </span>
-                <input type="email" class="form-control is-invalid" id="email-input" placeholder="Электронная почта" aria-label="Email"
+                <input type="email" class="form-control" id="email-input" placeholder="Электронная почта" aria-label="Email"
                        aria-describedby="basic-addon1">
+                <div class="invalid-feedback">
+                    Некорректный email
+                </div>
             </div>
             <div class="input-group mb-2">
                 <span class="input-group-text" id="password-icon">
@@ -34,6 +40,9 @@
                 </span>
                 <input type="password" class="form-control" id="password-input" placeholder="Пароль" aria-label="Password"
                        aria-describedby="basic-addon1">
+                <div class="invalid-feedback">
+                    Некорректный пароль
+                </div>
             </div>
             <div class="input-group mb-2">
                 <span class="input-group-text" id="password-rep-icon">
@@ -43,14 +52,21 @@
                               fill="#6C757D"/>
                     </svg>
                 </span>
-                <input type="password" class="form-control is-valid" id="repeat-password-input" placeholder="Подтверждение пароля"
+                <input type="password" class="form-control" id="repeat-password-input" placeholder="Подтверждение пароля"
                        aria-label="Password-repeat"
                        aria-describedby="basic-addon1">
+                <div class="invalid-feedback">
+                    Пароль не совпадает
+                </div>
             </div>
-            <button type="submit" class="btn btn-primary w-100 mt-4" id="process-button">Войти</button>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="remember-me">
+                <label class="form-check-label" for="remember-me">Запомнить меня</label>
+            </div>
+            <button type="button" class="btn btn-primary w-100 mt-4" id="process-button">Войти</button>
         </form>
         <div class="form-link align-self-start">
-            Уже есть аккаунт? <a href="">Войдите в систему</a>
+            Уже есть аккаунт? <a href="/#/login">Войдите в систему</a>
         </div>
     </div>
 </div>
