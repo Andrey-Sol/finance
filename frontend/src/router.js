@@ -1,6 +1,6 @@
 import { Diagrams } from "./components/diagrams.js";
-import { Logout } from "./components/logout.js";
-import { Form } from "./components/form.js";
+import { Logout } from "./components/auth/logout.js";
+import { Form } from "./components/auth/form.js";
 import { AuthUtils } from "./utils/auth-utils.js";
 
 export class Router {
@@ -12,8 +12,8 @@ export class Router {
             {
                 route: '#/',
                 title: 'Главная',
-                template: 'templates/diagrams.html',
-                useLayout: 'templates/layout.html',
+                template: '../src/templates/pages/diagrams.html',
+                useLayout: '../src/templates/layout.html',
                 load: () => {
                     new Diagrams();
                 }
@@ -21,7 +21,7 @@ export class Router {
             {
                 route: '#/login',
                 title: 'Вход',
-                template: 'templates/login.html',
+                template: '../src/templates/pages/auth/login.html',
                 useLayout: false,
                 load: () => {
                     new Form('login');
@@ -30,7 +30,7 @@ export class Router {
             {
                 route: '#/signup',
                 title: 'Регистрация',
-                template: 'templates/sign-up.html',
+                template: '../src/templates/pages/auth/sign-up.html',
                 useLayout: false,
                 load: () => {
                     new Form('signup');
@@ -39,64 +39,64 @@ export class Router {
             {
                 route: '#/income',
                 title: 'Доходы',
-                template: 'templates/income.html',
-                useLayout: 'templates/layout.html',
-                load: () => {}
-            },
-            {
-                route: '#/expenses',
-                title: 'Расходы',
-                template: 'templates/expenses.html',
-                useLayout: 'templates/layout.html',
+                template: '../src/templates/pages/incomes/income.html',
+                useLayout: '../src/templates/layout.html',
                 load: () => {}
             },
             {
                 route: '#/create-income',
                 title: 'Создание категории доходов',
-                template: 'templates/create-income-category.html',
-                useLayout: 'templates/layout.html',
+                template: '../src/templates/pages/incomes/create-income-category.html',
+                useLayout: '../src/templates/layout.html',
                 load: () => {}
             },
             {
                 route: '#/edit-income',
                 title: 'Редактирование категории доходов',
-                template: 'templates/edit-income-category.html',
-                useLayout: 'templates/layout.html',
+                template: '../src/templates/pages/incomes/edit-income-category.html',
+                useLayout: '../src/templates/layout.html',
+                load: () => {}
+            },
+            {
+                route: '#/expenses',
+                title: 'Расходы',
+                template: '../src/templates/pages/expenses/expenses.html',
+                useLayout: '../src/templates/layout.html',
                 load: () => {}
             },
             {
                 route: '#/create-expenses',
                 title: 'Создание категории расходов',
-                template: 'templates/create-expenses-category.html',
-                useLayout: 'templates/layout.html',
+                template: '../src/templates/pages/expenses/create-expenses-category.html',
+                useLayout: '../src/templates/layout.html',
                 load: () => {}
             },
             {
                 route: '#/edit-expenses',
                 title: 'Редактирование категории расходов',
-                template: 'templates/edit-income-category.html',
-                useLayout: 'templates/layout.html',
+                template: '../src/templates/pages/expenses/edit-expenses-category.html',
+                useLayout: '../src/templates/layout.html',
                 load: () => {}
             },
             {
                 route: '#/operations',
                 title: 'Доходы и расходы',
-                template: 'templates/operations.html',
-                useLayout: 'templates/layout.html',
+                template: '../src/templates/pages/operations/operations.html',
+                useLayout: '../src/templates/layout.html',
                 load: () => {}
             },
             {
                 route: '#/create-operation',
                 title: 'Создание дохода/расхода',
-                template: 'templates/create-operation.html',
-                useLayout: 'templates/layout.html',
+                template: '../src/templates/pages/operations/create-operation.html',
+                useLayout: '../src/templates/layout.html',
                 load: () => {}
             },
             {
                 route: '#/edit-operation',
                 title: 'Редактирование дохода/расхода',
-                template: 'templates/edit-operation.html',
-                useLayout: 'templates/layout.html',
+                template: '../src/templates/pages/operations/edit-operation.html',
+                useLayout: '../src/templates/layout.html',
                 load: () => {}
             },
         ]
