@@ -128,8 +128,8 @@ body {
 .user-avatar {
     background-color: #D9D9D9;
     border-radius: 50%;
-    width: 36px;
-    height: 36px;
+    min-width: 36px;
+    min-height: 36px;
 }
 
 .user-name {
