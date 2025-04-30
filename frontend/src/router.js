@@ -1,13 +1,17 @@
-import { Diagrams } from "./components/diagrams.js";
+import { HttpUtils } from "./utils/http-utils.js";
+import { AuthUtils } from "./utils/auth-utils.js";
+import { Main } from "./components/main.js";
 import { Form } from "./components/auth/form.js";
 import { Logout } from "./components/auth/logout.js";
-import { AuthUtils } from "./utils/auth-utils.js";
 import { IncomesList } from "./components/incomes/incomes-list.js";
 import { IncomesCreate } from "./components/incomes/incomes-create.js";
 import { IncomesEdit } from "./components/incomes/incomes-edit.js";
 import { ExpensesList } from "./components/expenses/expenses-list.js";
 import { ExpensesCreate } from "./components/expenses/expenses-create.js";
 import { ExpensesEdit } from "./components/expenses/expenses-edit.js";
+import { OperationsList } from "./components/operations/operations-list.js";
+import { OperationsCreate } from "./components/operations/operations-create.js";
+import { OperationsEdit } from "./components/operations/operations-edit.js";
 
 export class Router {
     constructor() {
@@ -18,10 +22,10 @@ export class Router {
             {
                 route: '#/',
                 title: 'Главная',
-                template: '../src/templates/pages/diagrams.html',
+                template: '../src/templates/pages/main.html',
                 useLayout: '../src/templates/layout.html',
                 load: () => {
-                    new Diagrams();
+                    new Main();
                 }
             },
             {
@@ -85,7 +89,6 @@ export class Router {
                 useLayout: '../src/templates/layout.html',
                 load: () => {
                     new ExpensesCreate();
-                    console.log('ExpensesCreate')
                 }
             },
             {
@@ -102,21 +105,27 @@ export class Router {
                 title: 'Доходы и расходы',
                 template: '../src/templates/pages/operations/operations-list.html',
                 useLayout: '../src/templates/layout.html',
-                load: () => {}
+                load: () => {
+                    new OperationsList();
+                }
             },
             {
                 route: '#/operations/create',
                 title: 'Создание дохода/расхода',
                 template: '../src/templates/pages/operations/operations-create.html',
                 useLayout: '../src/templates/layout.html',
-                load: () => {}
+                load: () => {
+                    new OperationsCreate();
+                }
             },
             {
                 route: '#/operations/edit',
                 title: 'Редактирование дохода/расхода',
                 template: '../src/templates/pages/operations/operations-edit.html',
                 useLayout: '../src/templates/layout.html',
-                load: () => {}
+                load: () => {
+                    new OperationsEdit();
+                }
             },
         ]
     }
@@ -153,6 +162,11 @@ export class Router {
             this.pageContentElement.innerHTML = await fetch(newRoute.useLayout).then(response => response.text());
             document.getElementById("layout-content").innerHTML = await fetch(newRoute.template).then(response => response.text());
             document.getElementById('profile-full-name').innerText = userInfo.name + ' ' + userInfo.lastName;
+
+            // Получение и отображение общего баланса
+            const balanceElement = document.getElementById('balance');
+            const balanceValue = await HttpUtils.request('/balance');
+            balanceElement.innerText = balanceValue.response.balance + ' $';
 
             // Переключение пунктов меню
             if (urlRoute === '#/') {

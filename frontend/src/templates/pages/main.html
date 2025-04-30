@@ -1,0 +1,43 @@
+<div class="mx-sm-3 mt-sm-5 p-sm-3 mx-1 mt-3 mb-5 p-1">
+    <div class="page-title page-title-long mb-sm-5 ms-4 mb-3">Главная</div>
+    <div class="ms-sm-4 ms-2">
+        <div class="filter d-flex align-items-center justify-content-start flex-wrap mb-5">
+            <div class="me-3 my-2">
+                <button type="button" class="btn btn-outline-secondary filter-action filter-btn" id="today">Сегодня</button>
+            </div>
+            <div class="me-3 my-2">
+                <button type="button" class="btn btn-outline-secondary filter-action filter-btn" id="week">Неделя</button>
+            </div>
+            <div class="me-3 my-2">
+                <button type="button" class="btn btn-outline-secondary filter-action filter-btn" id="month">Месяц</button>
+            </div>
+            <div class="me-3 my-2">
+                <button type="button" class="btn btn-outline-secondary filter-action filter-btn" id="year">Год</button>
+            </div>
+            <div class="me-3 my-2">
+                <button type="button" class="btn btn-outline-secondary filter-action filter-btn" id="all">Все</button>
+            </div>
+            <div class="me-3">
+                <button type="button" class="btn btn-outline-secondary filter-btn" id="interval">Интервал</button>
+            </div>
+            <div class="filter-date mt-1 mt-sm-0 d-none" id="interval-block">
+                с <input type="date" id="interval-from"> по <input type="date" id="interval-to">
+            </div>
+        </div>
+        <div class="charts container row px-0">
+            <div class="chart-wrapper col-12 col-md-6 mb-4 px-0" id="incomes-chart-wrapper">
+                <canvas id="incomesChart"></canvas>
+            </div>
+            <div class="chart-message col-12 col-md-6 mb-4 p-3 d-none" id="incomes-chart-message">
+                <span>Нет доходов за выбранный период</span>
+            </div>
+
+            <div class="chart-wrapper col-12 col-md-6 mb-4 px-0" id="expenses-chart-wrapper">
+                <canvas id="expensesChart"></canvas>
+            </div>
+            <div class="chart-message col-12 col-md-6 mb-4 p-3 d-none" id="expenses-chart-message">
+                <span>Нет расходов за выбранный период</span>
+            </div>
+        </div>
+    </div>
+</div>

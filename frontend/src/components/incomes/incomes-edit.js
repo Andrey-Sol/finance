@@ -4,7 +4,7 @@ export class IncomesEdit {
     constructor() {
         this.currentValue = null;
 
-        const id  = location.href.split('=')[1];
+        const id = location.href.split('=')[1];
         if (!id) {
             location.href = '#/';
         }
@@ -12,7 +12,7 @@ export class IncomesEdit {
         document.getElementById('save-button').addEventListener('click', this.updateIncome.bind(this, id))
         this.titleInputElement = document.getElementById('title-input');
 
-        this.getIncome(id).then();
+        this.getIncome(id);
     }
 
     async getIncome(id) {

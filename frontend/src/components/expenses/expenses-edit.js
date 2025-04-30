@@ -12,7 +12,7 @@ export class ExpensesEdit {
         document.getElementById('save-button').addEventListener('click', this.updateExpense.bind(this, id))
         this.titleInputElement = document.getElementById('title-input');
 
-        this.getExpense(id).then();
+        this.getExpense(id);
     }
 
     async getExpense(id) {

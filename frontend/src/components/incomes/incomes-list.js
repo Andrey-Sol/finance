@@ -2,7 +2,7 @@ import { HttpUtils } from "../../utils/http-utils.js";
 
 export class IncomesList {
     constructor() {
-        this.getIncomes().then();
+        this.getIncomes();
     }
 
     async getIncomes() {
@@ -35,9 +35,9 @@ export class IncomesList {
             listElement.insertBefore(itemElement, addElement);
         }
 
-        document.querySelectorAll('.delete-button').forEach((element) => {
-            element.addEventListener('click', (element) => {
-                const id = element.target.getAttribute('id');
+        document.querySelectorAll('.delete-button').forEach(element => {
+            element.addEventListener('click', (e) => {
+                const id = e.target.getAttribute('id');
                 document.getElementById('confirm-button').addEventListener('click', this.deleteIncome.bind(this, id));
             })
         })

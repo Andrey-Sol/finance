@@ -2,7 +2,7 @@ import { HttpUtils } from "../../utils/http-utils.js";
 
 export class ExpensesList {
     constructor() {
-        this.getExpenses().then();
+        this.getExpenses();
     }
 
     async getExpenses() {
