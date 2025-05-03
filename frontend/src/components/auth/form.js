@@ -1,5 +1,5 @@
-import { AuthUtils } from "../utils/auth-utils.js";
-import { HttpUtils } from "../utils/http-utils.js";
+import { AuthUtils } from "../../utils/auth-utils.js";
+import { HttpUtils } from "../../utils/http-utils.js";
 
 export class Form {
     constructor(page) {
@@ -111,7 +111,7 @@ export class Form {
 
             if (this.page === 'signup') {
                 try {
-                    const result = await HttpUtils.request('/signup', 'POST', {
+                    const result = await HttpUtils.request('/signup', 'POST', false, {
                         name: this.fields.find(item => item.name === 'name').element.value.split(' ')[1],
                         lastName: this.fields.find(item => item.name === 'name').element.value.split(' ')[0],
                         email: email,
@@ -124,7 +124,7 @@ export class Form {
             }
 
             try {
-                const result = await HttpUtils.request('/login', 'POST', {
+                const result = await HttpUtils.request('/login', 'POST', false, {
                     email: email,
                     password: password,
                     rememberMe: rememberMe

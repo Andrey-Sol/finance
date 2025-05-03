@@ -1,3 +1,5 @@
+import config from "../config/config.js";
+
 export class AuthUtils {
     static accessTokenKey = 'accessToken';
     static refreshTokenKey = 'refreshToken';
@@ -25,5 +27,38 @@ export class AuthUtils {
                 [this.userInfoTokenKey]: localStorage.getItem(this.userInfoTokenKey),
             }
         }
+    }
+
+    static setTokens(accessToken, refreshToken) {
+        localStorage.setItem(this.accessTokenKey, accessToken);
+        localStorage.setItem(this.refreshTokenKey, refreshToken);
+    }
+
+    static async updateRefreshToken() {
+        let result = false;
+        const refreshToken = this.getAuthInfo(this.refreshTokenKey)
+        if (refreshToken) {
+            const response = await fetch(config.api + '/refresh', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                },
+                body: JSON.stringify({refreshToken: refreshToken})
+            })
+            if (response && response.status === 200) {
+                const tokens = await response.json();
+                if (tokens && !tokens.error) {
+                    this.setTokens(tokens.tokens.accessToken, tokens.tokens.refreshToken);
+                    result = true;
+                }
+            }
+        }
+
+        if (!result) {
+            this.removeAuthInfo();
+        }
+
+        return result;
     }
 }
